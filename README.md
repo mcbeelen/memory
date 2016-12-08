@@ -1,1 +1,1 @@
-# memory
+# Training application: Memory in the browser
