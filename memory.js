@@ -45,6 +45,10 @@ function Position(nameOfCard) {
         }
     };
 
+    this.turnCard = function () {
+        visible = ! visible;
+    }
+
 }
 
 function MemoryGame(playerNames, cardNames) {
@@ -71,6 +75,9 @@ function MemoryGame(playerNames, cardNames) {
 
     var activePlayerIndex = 0;
 
+    var turnStatus = 0;
+
+
     this.getActivePlayer = function() {
         return players[activePlayerIndex].getName();
     };
@@ -83,6 +90,23 @@ function MemoryGame(playerNames, cardNames) {
 
         return positionStatus;
     };
+
+
+
+    this.choosePosition = function (index) {
+        var position = positions[index];
+        // TODO: check op index > aantal position
+        if (position.isOccupied()) {
+            if (turnStatus == 0) {
+
+                position.turnCard();
+            } else {
+                // TODO: Handel 2e kaart goed af.
+            }
+        } else {
+            console.error("Geen kaar beschikbaar");
+        }
+    }
 
 
 }
